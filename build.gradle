@@ -8,7 +8,10 @@ buildscript {
 }
 
 apply plugin: 'java'
+apply plugin: 'groovy'
 apply plugin: 'spring-boot'
+
+sourceCompatibility = 1.8
 
 jar {
     baseName = 'spring-boot-standalone'
@@ -17,10 +20,14 @@ jar {
 
 repositories {
     mavenCentral()
+    // Spock snapshots are available from the Sonatype OSS snapshot repository
+    maven { url "http://oss.sonatype.org/content/repositories/snapshots/" }
 }
 
 dependencies {
     compile("org.springframework.boot:spring-boot-starter")
     compile("org.springframework.boot:spring-boot-starter-logging")
+    compile("org.codehaus.groovy:groovy-all:2.3.8")
     testCompile("org.springframework.boot:spring-boot-starter-test")
+    testCompile("org.spockframework:spock-core:1.0-groovy-2.3-SNAPSHOT")
 }

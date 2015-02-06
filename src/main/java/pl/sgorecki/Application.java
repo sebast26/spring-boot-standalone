@@ -22,6 +22,8 @@ public class Application implements CommandLineRunner {
     public void run(String... args) throws Exception {
         logger.info("I'm standalone SpringBoot application.");
         logger.info("I'm working in " + profileName + " mode.");
+
+        logger.info(new Greeter().greet("Sebastian"));
     }
 
     public static void main(String[] args) {
